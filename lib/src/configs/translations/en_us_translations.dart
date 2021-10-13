@@ -1,4 +1,4 @@
-
 final Map<String, String> enUs = {
-  'oi' : 'Hello',
+  'oi': 'Hello',
+  'sign_up': 'Sign Up',
 };

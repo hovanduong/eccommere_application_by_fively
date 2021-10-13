@@ -16,8 +16,7 @@ class WidgetGradientText extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShaderMask(
       shaderCallback: (bounds) => (gradient ??
-              LinearGradient(
-                  colors: [PRIMARY_LIGHT_COLOR, PRIMARY_DARK_COLOR]))
+              LinearGradient(colors: [PRIMARY_COLOR_LIGHT, PRIMARY_COLOR_DARK]))
           .createShader(
         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
       ),

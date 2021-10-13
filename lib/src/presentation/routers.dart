@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/presentation/get_started/get_started.dart';
 import 'package:flutter_app/src/presentation/login/login_screen.dart';
+import 'package:flutter_app/src/presentation/sign_up/sign_up_screen.dart';
 
 import 'navigation/navigation_screen.dart';
 
@@ -19,6 +20,8 @@ class Routers {
         return animRoute(LoginScreen(), name: login);
       case getStarted:
         return animRoute(GetStartedScreen(), name: getStarted);
+      case register:
+        return animRoute(SignUpScreen(), name: register);
       default:
         return animRoute(
             Container(

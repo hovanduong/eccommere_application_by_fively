@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/configs/configs.dart';
 
@@ -15,7 +14,7 @@ class WidgetAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: radius,
-      backgroundColor: PRIMARY_COLOR,
+      backgroundColor: PRIMARY_COLOR_LIGHT,
       child: CircleAvatar(
           backgroundColor: Colors.white,
           radius: radius - (border ?? 0),

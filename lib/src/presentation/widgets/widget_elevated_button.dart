@@ -10,21 +10,25 @@ class WidgetElevatedButton extends StatelessWidget {
   final Color? color;
 
   const WidgetElevatedButton(
-      {required this.title, required this.action, this.width, this.textStyle, this.color});
+      {required this.title,
+      required this.action,
+      this.width,
+      this.textStyle,
+      this.color});
 
   @override
   Widget build(BuildContext context) {
     Widget child = Center(
       child: Text(title.tr,
-          style: textStyle ??
-              STYLE_SMALL.copyWith(color: Colors.white)),
+          style: textStyle ?? STYLE_SMALL.copyWith(color: Colors.white)),
     );
     return ElevatedButton(
       onPressed: action,
       style: ButtonStyle(
           shape: MaterialStateProperty.all(RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0))),
-          backgroundColor: MaterialStateProperty.all<Color>(color ?? PRIMARY_COLOR)),
+          backgroundColor:
+              MaterialStateProperty.all<Color>(color ?? PRIMARY_COLOR)),
       child: width != null
           ? SizedBox(
               width: width,

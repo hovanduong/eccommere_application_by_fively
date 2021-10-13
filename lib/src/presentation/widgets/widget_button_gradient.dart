@@ -41,7 +41,7 @@ class WidgetButtonGradient extends StatelessWidget {
               gradient: LinearGradient(
                 colors: [
                   colorStart ?? PRIMARY_COLOR,
-                  colorEnd ?? PRIMARY_LIGHT_COLOR
+                  colorEnd ?? PRIMARY_COLOR_LIGHT
                 ],
                 begin: alignmentStart ?? Alignment.bottomCenter,
                 end: alignmentEnd ?? Alignment.topCenter,

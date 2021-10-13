@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/src/presentation/onboarding/onboarding_screen.dart';
+import 'package:flutter_app/src/presentation/sign_up/sign_up_screen.dart';
 import 'package:flutter_app/src/utils/app_pref.dart';
 import 'package:flutter_app/src/utils/utils.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -68,9 +69,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       title: AppValues.APP_NAME,
       theme: ThemeSwitcher.of(context).themeData,
       navigatorObservers: <NavigatorObserver>[MyApp.observer],
-      locale: Locale('vi', 'VN'),
+      locale: Locale('en', 'US'),
       translationsKeys: AppTranslation.translations,
-      home: OnboardingScreen(),
+      home: SignUpScreen(),
       onGenerateRoute: Routers.generateRoute,
       builder: EasyLoading.init(),
     );

@@ -62,7 +62,7 @@ class _WidgetCustomInputState extends State<WidgetCustomInput> {
               decoration: InputDecoration(
                 suffixIcon:
                     InkWell(child: _isValid ? widget.prefixRight : Text("")),
-                fillColor: MAIN_COLOR_LIGHT,
+                fillColor: COLOR_LIGHT,
                 filled: true,
                 border: OutlineInputBorder(
                     borderSide: BorderSide.none,

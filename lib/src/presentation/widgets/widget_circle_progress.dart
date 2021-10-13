@@ -17,8 +17,8 @@ class WidgetCircleProgress extends StatelessWidget {
         child: CircularProgressIndicator(
           strokeWidth: 2.5,
           valueColor:
-          AlwaysStoppedAnimation<Color>(color ?? PRIMARY_DARK_COLOR),
-          backgroundColor: colorBackground ?? PRIMARY_LIGHT_COLOR,
+              AlwaysStoppedAnimation<Color>(color ?? PRIMARY_COLOR_DARK),
+          backgroundColor: colorBackground ?? PRIMARY_COLOR_LIGHT,
         ));
   }
 }

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Flutter Project\\BaseFlutter\\build\\webview_flutter\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "D:\\Flutter Project\\eccommere_by_fively\\build\\webview_flutter\\intermediates\\res\\merged\\debug\\values-v21\\values-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-2\\files-2.1\\97168ee4d0db3427838285cdd40577bc\\core-1.1.0\\res\\values-v21\\values-v21.xml",
@@ -17,7 +17,7 @@
             ]
         },
         {
-            "outputFile": "D:\\Flutter Project\\BaseFlutter\\build\\webview_flutter\\intermediates\\res\\merged\\debug\\values-v21\\values-v21.xml",
+            "outputFile": "D:\\Flutter Project\\eccommere_by_fively\\build\\webview_flutter\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-2\\files-2.1\\97168ee4d0db3427838285cdd40577bc\\core-1.1.0\\res\\values-v21\\values-v21.xml",

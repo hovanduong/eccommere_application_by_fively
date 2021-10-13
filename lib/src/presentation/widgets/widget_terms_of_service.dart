@@ -93,7 +93,7 @@ class WidgetTermOfService extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: MAIN_COLOR,
+                      color: PRIMARY_COLOR_DARK,
                     ),
                     child: Text(
                       "Accept",

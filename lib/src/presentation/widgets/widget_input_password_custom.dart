@@ -56,7 +56,7 @@ class _WidgetCustomInputPasswordState extends State<WidgetCustomInputPassword> {
                     });
                   },
                 ),
-                fillColor: MAIN_COLOR_LIGHT,
+                fillColor: COLOR_LIGHT,
                 filled: true,
                 border: OutlineInputBorder(
                     borderSide: BorderSide.none,

@@ -17,8 +17,8 @@ class WidgetLoadMoreWrapVertical<T> extends StatefulWidget {
       this.styleError,
       this.loadingColor,
       this.loadingColorBackground,
-      this.widgetError}):
-        super(key: key);
+      this.widgetError})
+      : super(key: key);
 
   final TextStyle? styleError;
   final ItemBuilderWrap itemBuilder;
@@ -67,7 +67,7 @@ class WidgetLoadMoreWrapVerticalState<T>
         ? loadingProgress()
         : (this._dataList!.length > 0
             ? RefreshIndicator(
-                color: widget.loadingColor ?? PRIMARY_DARK_COLOR,
+                color: widget.loadingColor ?? PRIMARY_COLOR_DARK,
                 onRefresh: this.onRefresh,
                 child: SingleChildScrollView(
                   controller: _controller,
@@ -79,7 +79,7 @@ class WidgetLoadMoreWrapVerticalState<T>
                 ),
               )
             : RefreshIndicator(
-                color: widget.loadingColor ?? PRIMARY_DARK_COLOR,
+                color: widget.loadingColor ?? PRIMARY_COLOR_DARK,
                 onRefresh: this.onRefresh,
                 child: Stack(
                   children: [
