@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/configs/configs.dart';
 import 'package:flutter_app/src/presentation/base/base.dart';
-import 'package:flutter_app/src/presentation/routers.dart';
-import 'package:flutter_app/src/presentation/sign_up/sign_up_viewmodel.dart';
+import 'package:flutter_app/src/presentation/presentation.dart';
+import 'package:flutter_app/src/presentation/sign_in/sign_in_viewmodel.dart';
 import 'package:flutter_app/src/presentation/widgets/widget_inputfield_custom.dart';
 import 'package:flutter_app/src/presentation/widgets/widget_passwordfield_custom.dart';
 import 'package:flutter_app/src/presentation/widgets/widget_social_button_custom.dart';
 import 'package:get/get.dart';
 
-// ignore: must_be_immutable
-class SignUpScreen extends StatelessWidget {
-  SignUpViewModel? _viewModel;
+class SignInScreen extends StatelessWidget {
+  late SignInViewModel _viewModel;
   @override
   Widget build(BuildContext context) {
-    return BaseWidget<SignUpViewModel>(
-        viewModel: SignUpViewModel(),
+    return BaseWidget<SignInViewModel>(
+        viewModel: SignInViewModel(),
         onViewModelReady: (viewModel) => _viewModel = viewModel!..intial(),
         builder: (context, viewModel, child) {
           return Scaffold(
@@ -57,7 +56,7 @@ class SignUpScreen extends StatelessWidget {
         vertical: AppValues.DEFAULT_PADDING,
       ),
       child: Text(
-        "sign_up".tr,
+        "sign_in".tr,
         style: STYLE_MEDIUM_BOLD.copyWith(fontSize: 25),
       ),
     );
@@ -71,10 +70,8 @@ class SignUpScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                _buildInputName(context),
                 _buildInputEmail(context),
                 _buildInputPassword(context),
-                _buildInputPasswordConfirm(context),
                 _buildAlreadyAccountText(context),
                 _buildButtonnubmit(context),
                 _buildSocialAuth(context),
@@ -87,38 +84,30 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInputName(BuildContext context) {
-    return WidgetCustomInputField(
-      label: "Name",
-      controller: _viewModel!.nameTextEditingController,
-      textError: _viewModel!.nameError,
-      onChange: (value) => _viewModel!.validationName(),
-    );
-  }
-
+  
   Widget _buildInputEmail(BuildContext context) {
     return WidgetCustomInputField(
       label: "Email",
-      controller: _viewModel!.emaiTextEditingController,
-      textError: _viewModel!.nameError,
-      onChange: (value) => _viewModel!.validationName(),
+      controller: _viewModel.emaiTextEditingController,
+      textError: _viewModel.nameError,
+      onChange: (value) => _viewModel.validationName(),
     );
   }
 
   Widget _buildInputPassword(BuildContext context) {
     return WidgetInputPasswordCustom(
         label: "Password",
-        controller: _viewModel!.passwrodTextEditingController,
-        textError: _viewModel!.passwordError,
-        onChange: (value) => _viewModel!.validationName());
+        controller: _viewModel.passwrodTextEditingController,
+        textError: _viewModel.passwordError,
+        onChange: (value) => _viewModel.validationName());
   }
 
   Widget _buildInputPasswordConfirm(BuildContext context) {
     return WidgetInputPasswordCustom(
         label: "Password Confirm",
-        controller: _viewModel!.passwrodTextEditingController,
-        textError: _viewModel!.passwordError,
-        onChange: (value) => _viewModel!.validationName());
+        controller: _viewModel.passwrodTextEditingController,
+        textError: _viewModel.passwordError,
+        onChange: (value) => _viewModel.validationName());
   }
 
   Widget _buildAlreadyAccountText(BuildContext context) {
@@ -132,7 +121,7 @@ class SignUpScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "already_have_an_account".tr,
+              "forgot_your_password".tr,
               style: STYLE_SMALL_BOLD,
             ),
             SizedBox(width: 5),
@@ -165,7 +154,7 @@ class SignUpScreen extends StatelessWidget {
           ]),
       height: 50,
       child: Text(
-        'sign_up'.tr,
+        'sign_in'.tr,
         style: STYLE_SMALL_BOLD.copyWith(color: Colors.white),
       ),
     );
