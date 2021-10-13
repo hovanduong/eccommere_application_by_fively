@@ -4,7 +4,10 @@ import 'package:flutter_app/src/presentation/base/base.dart';
 class SignUpViewModel extends BaseViewModel {
   final nameTextEditingController = TextEditingController();
   final emaiTextEditingController = TextEditingController();
+  final passwrodTextEditingController = TextEditingController();
   String nameError = "";
+  String emailError = "";
+  String passwordError = "";
   intial() async {}
 
   validationName() {
