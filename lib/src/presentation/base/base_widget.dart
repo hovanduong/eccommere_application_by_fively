@@ -44,6 +44,7 @@ class _BaseWidgetState<T extends BaseViewModel> extends State<BaseWidget<T>>
     if (widget.onViewModelReady != null) {
       widget.onViewModelReady!(viewModel);
     }
+    viewModel!.setLoading(false);
     super.initState();
   }
 
@@ -51,9 +52,37 @@ class _BaseWidgetState<T extends BaseViewModel> extends State<BaseWidget<T>>
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<T>(
       create: (context) => viewModel!..setContext(context),
-      child: Consumer<T>(
-        builder: widget.builder,
-        child: buildUi(defaultWidget: widget.child, context: context),
+      child: Container(
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Consumer<T>(
+                builder: widget.builder,
+                child: buildUi(defaultWidget: widget.child, context: context),
+              ),
+            ),
+            Positioned.fill(
+              child: StreamBuilder(
+                stream: viewModel!.loadingSubject,
+                builder: (_, AsyncSnapshot snapshot) => snapshot.data
+                    ? Container(
+                        child: Stack(
+                          children: [
+                            Positioned.fill(
+                                child: Container(
+                              color: Colors.black12,
+                            )),
+                            // Positioned.fill(
+                            //     child:
+                            //         Center(child: CircularProgressIndicator()))
+                          ],
+                        ),
+                      )
+                    : Container(),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

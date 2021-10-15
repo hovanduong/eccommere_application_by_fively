@@ -22,7 +22,7 @@ class SignUpScreen extends StatelessWidget {
             body: Container(
               padding: EdgeInsets.symmetric(
                 horizontal: AppValues.DEFAULT_PADDING,
-                vertical: AppValues.DEFAULT_PADDING,
+                vertical: AppValues.DEFAULT_PADDING + 20,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -66,12 +66,13 @@ class SignUpScreen extends StatelessWidget {
   Widget _buildForm(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(top: AppValues.DEFAULT_PADDING * 2),
+        margin: EdgeInsets.only(top: AppValues.DEFAULT_PADDING),
         child: Form(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                _buildInputName(context),
+                _buildInputFirstName(context),
+                _buildInputLastName(context),
                 _buildInputEmail(context),
                 _buildInputPassword(context),
                 _buildInputPasswordConfirm(context),
@@ -87,11 +88,20 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInputName(BuildContext context) {
+  Widget _buildInputFirstName(BuildContext context) {
     return WidgetCustomInputField(
-      label: "Name",
-      controller: _viewModel!.nameTextEditingController,
-      textError: _viewModel!.nameError,
+      label: "First Name",
+      controller: _viewModel!.firstNameTextEditingController,
+      textError: _viewModel!.firstnameError,
+      onChange: (value) => _viewModel!.validationName(),
+    );
+  }
+
+  Widget _buildInputLastName(BuildContext context) {
+    return WidgetCustomInputField(
+      label: "Last Name",
+      controller: _viewModel!.lastNameTextEditingController,
+      textError: _viewModel!.lastNameError,
       onChange: (value) => _viewModel!.validationName(),
     );
   }
@@ -100,7 +110,7 @@ class SignUpScreen extends StatelessWidget {
     return WidgetCustomInputField(
       label: "Email",
       controller: _viewModel!.emaiTextEditingController,
-      textError: _viewModel!.nameError,
+      textError: _viewModel!.emailError,
       onChange: (value) => _viewModel!.validationName(),
     );
   }
@@ -108,7 +118,7 @@ class SignUpScreen extends StatelessWidget {
   Widget _buildInputPassword(BuildContext context) {
     return WidgetInputPasswordCustom(
         label: "Password",
-        controller: _viewModel!.passwrodTextEditingController,
+        controller: _viewModel!.passwrordTextEditingController,
         textError: _viewModel!.passwordError,
         onChange: (value) => _viewModel!.validationName());
   }
@@ -116,8 +126,8 @@ class SignUpScreen extends StatelessWidget {
   Widget _buildInputPasswordConfirm(BuildContext context) {
     return WidgetInputPasswordCustom(
         label: "Password Confirm",
-        controller: _viewModel!.passwrodTextEditingController,
-        textError: _viewModel!.passwordError,
+        controller: _viewModel!.passwrordConfirmTextEditingController,
+        textError: _viewModel!.passwordConfirmError,
         onChange: (value) => _viewModel!.validationName());
   }
 
@@ -147,33 +157,36 @@ class SignUpScreen extends StatelessWidget {
   }
 
   Widget _buildButtonnubmit(BuildContext context) {
-    return Container(
-      width: Get.width,
-      padding: EdgeInsets.symmetric(horizontal: 25),
-      margin: EdgeInsets.only(top: 15),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.circular(50),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 1,
-              spreadRadius: 0,
-              offset: Offset(-1, 0),
-              color: Theme.of(context).shadowColor.withAlpha(80),
-            )
-          ]),
-      height: 50,
-      child: Text(
-        'sign_up'.tr,
-        style: STYLE_SMALL_BOLD.copyWith(color: Colors.white),
+    return InkWell(
+      onTap: ()=> _viewModel!.onSignUp(),
+      child: Container(
+        width: Get.width,
+        padding: EdgeInsets.symmetric(horizontal: 25),
+        margin: EdgeInsets.only(top: 15),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+            borderRadius: BorderRadius.circular(50),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 1,
+                spreadRadius: 0,
+                offset: Offset(-1, 0),
+                color: Theme.of(context).shadowColor.withAlpha(80),
+              )
+            ]),
+        height: 50,
+        child: Text(
+          'sign_up'.tr,
+          style: STYLE_SMALL_BOLD.copyWith(color: Colors.white),
+        ),
       ),
     );
   }
 
   Widget _buildSocialAuth(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: Get.height * 0.1),
+      margin: EdgeInsets.only(top: Get.height * 0.05),
       child: Column(
         children: [
           _buildText(context),

@@ -3,6 +3,17 @@ final Map<String, String> enUs = {
   'sign_up': 'Sign Up',
   'sign_in': "Sign In",
   'already_have_an_account': "Already have an account?",
-  'or_sign_up_with_social_account' : "Or sign up with social account",
-  'forgot_your_password': "Forgot your password?"
+  'or_sign_up_with_social_account': "Or sign up with social account",
+  'forgot_your_password': "Forgot your password?",
+  'first_name_required': "Please enter your fistName!",
+  'last_name_required': "Please enter your lastName!",
+  'email_required': "Please enter your email!",
+  'passord_required': "Please enter your password!",
+  'passord_invalid': "Password is wrong format!",
+  'passord_confirm_required': "Please enter your password confirm!",
+  'passord_confirm_not_match': "Password confirm not match!",
+  'email_invalid': "Email is wrong format!",
+  'loading': "Loading...",
+  'email_is_exists': "Email is exists!",
+  'phone_number_is_exists!': "Phone Number is exists!"
 };

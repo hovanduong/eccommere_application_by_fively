@@ -16,21 +16,16 @@ class AppPref {
   }
 
   static set accessToken(String? token) => _box.write('accessToken', token);
-
   static String? get accessToken => _box.read('accessToken');
 
   static set firstInstallApp(int time) => _box.write('firstInstall', time);
   static int get firstInstallApp => _box.read('firstInstall');
 
-  // static set user(Apps? _user) {
-  //   _box.write('user', _user);
-  // }
-  //
-  // static Apps? get user {
-  //   final _ = _box.read('user');
-  //   if (_ == null) return null;
-  //   return _ is Apps ? _ : Apps.fromJson(_box.read('user'));
-  // }
+  static set firstName(String firstName) => _box.write("firstName", firstName);
+  static String get firstName => _box.read("firstName");
+
+  static set lastName(String firstName) => _box.write("lastName", firstName);
+  static String get lastName => _box.read("lastName");
 
   static Stream get watchUser => _userBehavior.stream;
 }

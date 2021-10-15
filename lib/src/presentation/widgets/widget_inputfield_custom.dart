@@ -24,7 +24,7 @@ class _WidgetCustomInputFieldState extends State<WidgetCustomInputField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 14),
+      margin: EdgeInsets.only(top: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,7 +42,7 @@ class _WidgetCustomInputFieldState extends State<WidgetCustomInputField> {
                       offset: Offset(0, 0),
                       blurRadius: 2,
                       spreadRadius: 0,
-                      color: Theme.of(context).shadowColor.withAlpha(80))
+                      color: Theme.of(context).shadowColor.withAlpha(30))
                 ],
                 borderRadius: BorderRadius.circular(8)),
             child: Column(
@@ -85,7 +85,7 @@ class _WidgetCustomInputFieldState extends State<WidgetCustomInputField> {
                 ]),
           ),
           Container(
-            margin: EdgeInsets.only(top: 5),
+            margin: EdgeInsets.only(top: 5, left: 5),
             child: Text(
               widget.textError,
               style: STYLE_SMALL_BOLD.copyWith(

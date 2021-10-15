@@ -16,12 +16,14 @@ import 'src/presentation/presentation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIOverlays([]);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark));
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Firebase.initializeApp();
   await AppPref.initListener();
   AppPref.firstInstallApp = 1;
-
+  configLoading();
   notificationInitialed();
   runApp(RestartWidget(child: App()));
 }
@@ -76,4 +78,22 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       builder: EasyLoading.init(),
     );
   }
+}
+
+void configLoading() {
+  EasyLoading.instance
+    ..displayDuration = const Duration(seconds: 3)
+    ..indicatorType = EasyLoadingIndicatorType.pulse
+    ..loadingStyle = EasyLoadingStyle.light
+    ..indicatorSize = 30.0
+    ..fontSize = 15
+    ..textStyle = TextStyle(fontSize: 15)
+    ..radius = 10.0
+    ..progressColor = Colors.yellow
+    ..backgroundColor = Colors.green
+    ..indicatorColor = Colors.yellow
+    ..textColor = Colors.yellow
+    ..maskColor = Colors.blue.withOpacity(0.5)
+    ..userInteractions = true
+    ..dismissOnTap = false;
 }

@@ -12,7 +12,7 @@ const Color LIGHT_COLOR = Color(0xFFFFFFFF);
 
 const Color COLOR_BLACK = Color(0xFF222222);
 const Color COLOR_GREY = Color(0xFF9B9B9B);
-const Color COLOR_LIGHT = Color(0xFFECF1FB);
+const Color COLOR_LIGHT = Color(0xFFFFFFFF);
 
 const Color SUCCESS_COLOR = Color(0xFF2AA952);
 const Color ERROR_COLOR = Color(0xFFF01F0E);

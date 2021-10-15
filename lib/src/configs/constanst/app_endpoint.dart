@@ -1,8 +1,8 @@
 class AppEndpoint {
   AppEndpoint._();
 
-  static const String BASE_URL = "http://relax365.net";
-  static const String BASE_URL_BOOKING = "http://localhost:8000/api";
+  static const String BASE_URL = "http://192.168.3.11:3000/api/";
+  static const String BASE_URL_BOOKING = "http://192.168.3.11:3000/api/";
 
   static const int connectionTimeout = 1500;
   static const int receiveTimeout = 1500;

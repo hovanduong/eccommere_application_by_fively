@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:get/get.dart';
 
 abstract class BaseViewModel extends ChangeNotifier {
   BuildContext? _context;
@@ -16,9 +17,22 @@ abstract class BaseViewModel extends ChangeNotifier {
 
   void setLoading(bool loading) {
     if (loading != isLoading) loadingSubject.add(loading);
+    if (loading) {
+      EasyLoading.show(status: "loading".tr);
+    } else {
+      EasyLoading.dismiss();
+    }
   }
 
   bool get isLoading => loadingSubject.value;
+
+  void showError(String message) {
+    EasyLoading.showError(message);
+  }
+
+  void showSuccessNotifi(String message) {
+    EasyLoading.showSuccess(message);
+  }
 
   void setError(String message) {
     errorSubject.add(message);
@@ -27,8 +41,6 @@ abstract class BaseViewModel extends ChangeNotifier {
   GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   GlobalKey<ScaffoldState> get scaffoldKey => _scaffoldKey;
-
-  // static WeatherRepository weatherRepository = WeatherRepository();
 
   @override
   void dispose() async {
@@ -41,6 +53,5 @@ abstract class BaseViewModel extends ChangeNotifier {
 
   void unFocus() {
     FocusScope.of(context).unfocus();
-    SystemChrome.setEnabledSystemUIOverlays([]);
   }
 }

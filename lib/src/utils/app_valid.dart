@@ -24,41 +24,38 @@ class AppValid {
 
   static validateEmail(value) {
     if (value == null || value.length == 0) {
-      return 'valid_enter_email'.tr;
+      return 'email_required'.tr;
     } else {
       RegExp regex = new RegExp(
           r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
       if (!regex.hasMatch(value))
-        return 'valid_email'.tr;
+        return 'email_invalid'.tr;
       else
-        return null;
+        return "";
     }
     ;
   }
 
-  static validatePassword() {
-    return (value) {
-      if (value == null || value.length < 6) {
-        return 'valid_password'.tr;
-      } else {
-        RegExp regex = new RegExp(r'^[0-9a-zA-Z!@#\$&*~]{6,}$');
-        if (!regex.hasMatch(value))
-          return 'valid_password'.tr;
-        else
-          return null;
-      }
-    };
+  static validatePassword(String value) {
+    if (value == null || value.length < 6) {
+      return 'passord_required'.tr;
+    } else {
+      RegExp regex = new RegExp(r'^[0-9a-zA-Z!@#\$&*~]{6,}$');
+      if (!regex.hasMatch(value))
+        return 'passord_invalid'.tr;
+      else
+        return "";
+    }
   }
 
-  static validatePasswordConfirm(TextEditingController controller) {
-    return (value) {
-      if (value == null || value.length == 0) {
-        return 'valid_enter_phone'.tr;
-      } else if (controller.text != value)
-        return 'valid_password_confirm'.tr;
-      else
-        return null;
-    };
+  static validatePasswordConfirm(String password, String passwordConfirm) {
+    if (password == null || password.length == 0) {
+      return 'passord_confirm_required'.tr;
+    } else if (passwordConfirm != password)
+      return 'passord_confirm_not_match'.tr;
+    else {
+      return "";
+    }
   }
 
   static validatePhoneNumber() {
@@ -77,9 +74,10 @@ class AppValid {
     };
   }
 
-  static validateRequired(value) {
+  static String validateRequired(value, message) {
     if (value == null || value.length == 0) {
-      return 'Please enter input!'.tr;
+      return message;
     }
+    return "";
   }
 }
