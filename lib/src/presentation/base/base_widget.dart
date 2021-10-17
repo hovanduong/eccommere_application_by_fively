@@ -62,24 +62,26 @@ class _BaseWidgetState<T extends BaseViewModel> extends State<BaseWidget<T>>
               ),
             ),
             Positioned.fill(
-              child: StreamBuilder(
-                stream: viewModel!.loadingSubject,
-                builder: (_, AsyncSnapshot snapshot) => snapshot.data
-                    ? Container(
-                        child: Stack(
-                          children: [
-                            Positioned.fill(
-                                child: Container(
-                              color: Colors.black12,
-                            )),
-                            // Positioned.fill(
-                            //     child:
-                            //         Center(child: CircularProgressIndicator()))
-                          ],
-                        ),
-                      )
-                    : Container(),
-              ),
+              child: viewModel!.isLoading
+                  ? StreamBuilder(
+                      stream: viewModel!.loadingSubject,
+                      builder: (_, AsyncSnapshot snapshot) => snapshot.data
+                          ? Container(
+                              child: Stack(
+                                children: [
+                                  Positioned.fill(
+                                      child: Container(
+                                    color: Colors.black12,
+                                  )),
+                                  // Positioned.fill(
+                                  //     child:
+                                  //         Center(child: CircularProgressIndicator()))
+                                ],
+                              ),
+                            )
+                          : Container(),
+                    )
+                  : Container(),
             )
           ],
         ),

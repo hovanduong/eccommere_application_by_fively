@@ -21,7 +21,7 @@ class SignInScreen extends StatelessWidget {
             body: Container(
               padding: EdgeInsets.symmetric(
                 horizontal: AppValues.DEFAULT_PADDING,
-                vertical: AppValues.DEFAULT_PADDING,
+                vertical: AppValues.DEFAULT_PADDING * 2,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -84,12 +84,11 @@ class SignInScreen extends StatelessWidget {
     );
   }
 
-  
   Widget _buildInputEmail(BuildContext context) {
     return WidgetCustomInputField(
       label: "Email",
       controller: _viewModel.emaiTextEditingController,
-      textError: _viewModel.nameError,
+      textError: _viewModel.emailError,
       onChange: (value) => _viewModel.validationName(),
     );
   }
@@ -97,14 +96,6 @@ class SignInScreen extends StatelessWidget {
   Widget _buildInputPassword(BuildContext context) {
     return WidgetInputPasswordCustom(
         label: "Password",
-        controller: _viewModel.passwrodTextEditingController,
-        textError: _viewModel.passwordError,
-        onChange: (value) => _viewModel.validationName());
-  }
-
-  Widget _buildInputPasswordConfirm(BuildContext context) {
-    return WidgetInputPasswordCustom(
-        label: "Password Confirm",
         controller: _viewModel.passwrodTextEditingController,
         textError: _viewModel.passwordError,
         onChange: (value) => _viewModel.validationName());
@@ -136,26 +127,29 @@ class SignInScreen extends StatelessWidget {
   }
 
   Widget _buildButtonnubmit(BuildContext context) {
-    return Container(
-      width: Get.width,
-      padding: EdgeInsets.symmetric(horizontal: 25),
-      margin: EdgeInsets.only(top: 15),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.circular(50),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 1,
-              spreadRadius: 0,
-              offset: Offset(-1, 0),
-              color: Theme.of(context).shadowColor.withAlpha(80),
-            )
-          ]),
-      height: 50,
-      child: Text(
-        'sign_in'.tr,
-        style: STYLE_SMALL_BOLD.copyWith(color: Colors.white),
+    return InkWell(
+      onTap: () => _viewModel.onLogin(),
+      child: Container(
+        width: Get.width,
+        padding: EdgeInsets.symmetric(horizontal: 25),
+        margin: EdgeInsets.only(top: 15),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+            borderRadius: BorderRadius.circular(50),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 1,
+                spreadRadius: 0,
+                offset: Offset(-1, 0),
+                color: Theme.of(context).shadowColor.withAlpha(80),
+              )
+            ]),
+        height: 50,
+        child: Text(
+          'sign_in'.tr,
+          style: STYLE_SMALL_BOLD.copyWith(color: Colors.white),
+        ),
       ),
     );
   }

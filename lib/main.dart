@@ -73,7 +73,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       navigatorObservers: <NavigatorObserver>[MyApp.observer],
       locale: Locale('en', 'US'),
       translationsKeys: AppTranslation.translations,
-      home: SignUpScreen(),
+      home: SplashScreen(),
       onGenerateRoute: Routers.generateRoute,
       builder: EasyLoading.init(),
     );

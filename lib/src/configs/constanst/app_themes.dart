@@ -12,6 +12,7 @@ normalTheme(BuildContext context) {
     disabledColor: Colors.grey,
     cardColor: COLOR_LIGHT,
     canvasColor: Colors.white,
+    bottomAppBarColor: COLOR_LIGHT,
     brightness: Brightness.light,
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
@@ -36,6 +37,7 @@ lightTheme(BuildContext context) {
     disabledColor: Colors.grey,
     cardColor: COLOR_LIGHT,
     canvasColor: Colors.white,
+    bottomAppBarColor: COLOR_LIGHT,
     brightness: Brightness.light,
     buttonTheme: Theme.of(context).buttonTheme.copyWith(
         colorScheme: ColorScheme.light(),
@@ -63,6 +65,7 @@ darkTheme(BuildContext context) {
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
     brightness: Brightness.dark,
+    bottomAppBarColor: COLOR_BLACK,
     buttonTheme: Theme.of(context).buttonTheme.copyWith(
         colorScheme: ColorScheme.dark(),
         buttonColor: Colors.blue,

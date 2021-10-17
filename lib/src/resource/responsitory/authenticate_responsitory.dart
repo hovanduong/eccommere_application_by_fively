@@ -51,4 +51,36 @@ class AuthenticateResponsitory {
       return "ERROR";
     }
   }
+
+  Future<bool> loginResponse(
+      {required String email, required String password}) async {
+    try {
+      String url = "auth/login";
+      DIO.Response response = await AppClients().post(url, data: {
+        "email": email,
+        "password": password,
+      });
+      if (response.statusCode == 200) {
+        AppPref.accessToken = response.data["data"]["successToken"];
+        AppPref.firstName = response.data["data"]["firstName"];
+        AppPref.lastName = response.data["data"]["lastName"];
+        return true;
+      }
+
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  Future<bool> serectResponse() async {
+    try {
+      String url = "auth/serect";
+      DIO.Response response = await AppClients()
+          .get(url, options: DIO.Options(headers: {"token": "token"}));
+      return response.statusCode == 200 ? true : false;
+    } catch (e) {
+      return false;
+    }
+  }
 }

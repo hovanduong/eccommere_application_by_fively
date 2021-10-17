@@ -37,13 +37,16 @@ class AppClients extends DioForNative {
 
     switch (options.method) {
       case AppClients.GET:
-        //Remove if contains
+        // Remove if contains
         // if (options.queryParameters.containsKey("accessToken"))
         //   options.queryParameters.remove("accessToken");
         // //Add again
         // options.queryParameters.addAll({
         //   "accessToken": accessToken,
         // });
+        if (options.headers.containsKey("token")) {
+          options.headers["Authorization"] = "Bearer  ${accessToken ?? ''}";
+        }
         log("${options.method}: ${options.uri}\nParams: ${options.queryParameters}\nHeader: ${options.headers}");
         break;
 
