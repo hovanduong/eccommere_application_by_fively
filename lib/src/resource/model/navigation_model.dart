@@ -10,23 +10,40 @@ class NavigationModel {
   final String name;
   final String imgPath;
   final Widget page;
-
+  final String imagePathActive;
   NavigationModel(
-      {required this.name, required this.imgPath, required this.page});
+      {required this.name,
+      required this.imgPath,
+      required this.page,
+      required this.imagePathActive});
 }
 
 List<NavigationModel> navidationData() {
   return [
     new NavigationModel(
-        name: "Home", imgPath: AppImages.icHome, page: HomePage()),
+        name: "Home",
+        imgPath: AppImages.icHome,
+        page: HomePage(),
+        imagePathActive: AppImages.icHomeActive),
     new NavigationModel(
-        name: "Shop", imgPath: AppImages.icShop, page: ShopPage()),
-    new NavigationModel(name: "Bag", imgPath: AppImages.icBag, page: BagPage()),
+        name: "Shop",
+        imgPath: AppImages.icShop,
+        page: ShopPage(),
+        imagePathActive: AppImages.icShopActive),
+    new NavigationModel(
+        name: "Bag",
+        imgPath: AppImages.icBag,
+        page: BagPage(),
+        imagePathActive: AppImages.icBagActive),
     new NavigationModel(
         name: "Favorites",
         imgPath: AppImages.icFavorites,
-        page: FavoritePage()),
+        page: FavoritePage(),
+        imagePathActive: AppImages.icFavoritesActive),
     new NavigationModel(
-        name: "Profile", imgPath: AppImages.icProfile, page: ProfilePage()),
+        name: "Profile",
+        imgPath: AppImages.icProfile,
+        page: ProfilePage(),
+        imagePathActive: AppImages.icProfileActive),
   ];
 }

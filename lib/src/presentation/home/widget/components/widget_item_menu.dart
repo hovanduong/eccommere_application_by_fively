@@ -8,8 +8,12 @@ class ItemMenuWidget extends StatelessWidget {
   final String name;
   final String icPath;
   final bool active;
+  final String icActive;
   ItemMenuWidget(
-      {required this.name, required this.icPath, required this.active});
+      {required this.name,
+      required this.icPath,
+      required this.active,
+      required this.icActive});
   @override
   Widget build(BuildContext context) {
     log("active ${active}");
@@ -20,7 +24,7 @@ class ItemMenuWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SvgPicture.asset(icPath,
+          SvgPicture.asset(active ? icActive : icPath,
               color: active
                   ? Theme.of(context).primaryColor
                   : Theme.of(context).disabledColor),

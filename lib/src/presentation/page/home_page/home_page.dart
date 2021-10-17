@@ -1,25 +1,28 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/configs/configs.dart';
 import 'package:flutter_app/src/presentation/base/base.dart';
-import 'package:flutter_app/src/presentation/home/home_viewmodel.dart';
+import 'package:flutter_app/src/presentation/page/home_page/components/widget_product_list.dart';
 import 'package:flutter_app/src/presentation/page/home_page/home_page_viewmodel.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  HomePageViewModel? _viewModel;
+  late HomePageViewModel _viewModel;
   @override
   Widget build(BuildContext context) {
     return BaseWidget<HomePageViewModel>(
         viewModel: HomePageViewModel(),
         onViewModelReady: (viewModel) => _viewModel = viewModel!..initial(),
         builder: (_, viewModel, child) {
-          return Container(
-            color: Theme.of(_).backgroundColor,
-            child: Expanded(
+          return Scaffold(
+            backgroundColor: Theme.of(_).backgroundColor,
+            body: Container(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
                     _buildSale(context),
+                    _buildProduct(context),
                   ],
                 ),
               ),
@@ -72,6 +75,28 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ))
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProduct(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          _buildListNew(context),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildListNew(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          WidgetProductList(title: "New"),
+          WidgetProductList(title: "New"),
+          WidgetProductList(title: "New"),
         ],
       ),
     );

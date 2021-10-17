@@ -14,8 +14,8 @@ class HomeScreen extends StatelessWidget {
         viewModel: HomeViewModel(),
         onViewModelReady: (viewModel) => _viewModel = viewModel!..inittal(),
         builder: (context, viewModel, child) {
-          return Scaffold(
-            body: Stack(
+          return Container(
+            child: Stack(
               children: [
                 _buildPage(context),
                 _buildBottonNavigate(context),
@@ -27,6 +27,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildPage(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(bottom: 80),
       child: PageView.builder(
         controller: _viewModel!.pageController,
         onPageChanged: (index) => _viewModel!.onPageChange(index),
@@ -63,6 +64,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: () => _viewModel!
                       .onPageChange(_viewModel?.navigations.indexOf(e) ?? 0),
                   child: ItemMenuWidget(
+                      icActive: e.imagePathActive,
                       name: e.name,
                       icPath: e.imgPath,
                       active: _viewModel?.navigations.indexOf(e) ==
