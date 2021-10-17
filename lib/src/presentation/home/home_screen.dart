@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
         onViewModelReady: (viewModel) => _viewModel = viewModel!..inittal(),
         builder: (context, viewModel, child) {
           return Container(
+            color: Theme.of(context).backgroundColor,
             child: Stack(
               children: [
                 _buildPage(context),
@@ -42,7 +43,7 @@ class HomeScreen extends StatelessWidget {
       bottom: 0,
       child: Container(
         width: Get.width,
-        height: Get.height * 0.09,
+        height: Get.height * 0.075,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(AppValues.DEFAULT_PADDING),
@@ -52,7 +53,7 @@ class HomeScreen extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 offset: Offset(0, 0),
-                blurRadius: 5,
+                blurRadius: 1,
                 color: Theme.of(context).disabledColor.withAlpha(80),
               )
             ]),

@@ -43,7 +43,7 @@ class SignUpScreen extends StatelessWidget {
       child: IconButton(
         icon: Icon(
           Icons.arrow_back_ios,
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).colorScheme.secondary,
         ),
         onPressed: () => Get.back(),
       ),
@@ -158,7 +158,7 @@ class SignUpScreen extends StatelessWidget {
 
   Widget _buildButtonnubmit(BuildContext context) {
     return InkWell(
-      onTap: ()=> _viewModel!.onSignUp(),
+      onTap: () => _viewModel!.onSignUp(),
       child: Container(
         width: Get.width,
         padding: EdgeInsets.symmetric(horizontal: 25),
@@ -207,7 +207,8 @@ class SignUpScreen extends StatelessWidget {
 
   Widget _buildText(BuildContext context) {
     return Text("or_sign_up_with_social_account".tr,
-        style: STYLE_SMALL_BOLD.copyWith(color: Theme.of(context).accentColor));
+        style: STYLE_SMALL_BOLD.copyWith(
+            color: Theme.of(context).colorScheme.secondary));
   }
 
   Widget _buildGoogleSocial(BuildContext context) {

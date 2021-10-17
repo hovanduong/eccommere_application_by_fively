@@ -17,8 +17,14 @@ class AppImages {
   static final String icProfileActive = 'assets/icons/ic_profile_active.svg';
   static final String icLove = 'assets/icons/ic_love.svg';
   static final String icLoveActive = 'assets/icons/ic_love_active.svg';
+  static final String icSearch = 'assets/icons/ic_search.svg';
+  static final String icArrowNext = 'assets/icons/ic_arrow_next.svg';
+  static final String icArrowBack = 'assets/icons/ic_arrow_back.svg';
 
   // homepage
   static final String homeSale = 'assets/images/sale_home.png';
   static final String imgProduct = "assets/images/img_product.png";
+
+  // profile
+  static final String avatarDefault = "assets/images/avatar.jpg";
 }

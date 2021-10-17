@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'constants.dart';
 
@@ -8,7 +9,6 @@ normalTheme(BuildContext context) {
     backgroundColor: BACKGROUND_COLOR_LIGHT,
     primarySwatch: Colors.blue,
     primaryColor: PRIMARY_COLOR_LIGHT,
-    accentColor: COLOR_BLACK,
     disabledColor: Colors.grey,
     cardColor: COLOR_LIGHT,
     canvasColor: Colors.white,
@@ -22,8 +22,24 @@ normalTheme(BuildContext context) {
         splashColor: Colors.white),
     shadowColor: COLOR_GREY,
     appBarTheme: AppBarTheme(
+      systemOverlayStyle:
+          SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
       elevation: 0.0,
     ),
+    colorScheme: ColorScheme(
+        brightness: Brightness.dark,
+        secondary: COLOR_LIGHT,
+        onBackground: BACKGROUND_COLOR_LIGHT,
+        onSurface: BACKGROUND_COLOR_DARK,
+        background: BACKGROUND_COLOR_DARK,
+        error: PRIMARY_COLOR_LIGHT,
+        onError: PRIMARY_COLOR_LIGHT,
+        onPrimary: PRIMARY_COLOR_LIGHT,
+        onSecondary: PRIMARY_COLOR_LIGHT,
+        primary: PRIMARY_COLOR_LIGHT,
+        primaryVariant: PRIMARY_COLOR_LIGHT,
+        secondaryVariant: PRIMARY_COLOR_LIGHT,
+        surface: PRIMARY_COLOR_LIGHT),
   );
 }
 
@@ -33,7 +49,20 @@ lightTheme(BuildContext context) {
     backgroundColor: BACKGROUND_COLOR_LIGHT,
     primarySwatch: Colors.blue,
     primaryColor: PRIMARY_COLOR_LIGHT,
-    accentColor: COLOR_BLACK,
+    colorScheme: ColorScheme(
+        brightness: Brightness.dark,
+        secondary: COLOR_LIGHT,
+        onBackground: BACKGROUND_COLOR_DARK,
+        onSurface: BACKGROUND_COLOR_DARK,
+        background: BACKGROUND_COLOR_DARK,
+        error: PRIMARY_COLOR_LIGHT,
+        onError: PRIMARY_COLOR_LIGHT,
+        onPrimary: PRIMARY_COLOR_LIGHT,
+        onSecondary: PRIMARY_COLOR_LIGHT,
+        primary: PRIMARY_COLOR_LIGHT,
+        primaryVariant: PRIMARY_COLOR_LIGHT,
+        secondaryVariant: PRIMARY_COLOR_LIGHT,
+        surface: PRIMARY_COLOR_LIGHT),
     disabledColor: Colors.grey,
     cardColor: COLOR_LIGHT,
     canvasColor: Colors.white,
@@ -47,6 +76,8 @@ lightTheme(BuildContext context) {
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
     appBarTheme: AppBarTheme(
+      systemOverlayStyle:
+          SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
       elevation: 0.0,
     ),
   );
@@ -58,7 +89,20 @@ darkTheme(BuildContext context) {
     backgroundColor: BACKGROUND_COLOR_DARK,
     primarySwatch: Colors.blue,
     primaryColor: PRIMARY_COLOR_DARK,
-    accentColor: COLOR_LIGHT,
+    colorScheme: ColorScheme(
+        brightness: Brightness.dark,
+        secondary: COLOR_LIGHT,
+        onBackground: BACKGROUND_COLOR_DARK,
+        onSurface: BACKGROUND_COLOR_DARK,
+        background: BACKGROUND_COLOR_DARK,
+        error: PRIMARY_COLOR_LIGHT,
+        onError: PRIMARY_COLOR_LIGHT,
+        onPrimary: PRIMARY_COLOR_LIGHT,
+        onSecondary: PRIMARY_COLOR_LIGHT,
+        primary: PRIMARY_COLOR_LIGHT,
+        primaryVariant: PRIMARY_COLOR_LIGHT,
+        secondaryVariant: PRIMARY_COLOR_LIGHT,
+        surface: PRIMARY_COLOR_LIGHT),
     disabledColor: Colors.grey,
     cardColor: COLOR_GREY,
     canvasColor: Colors.black,
@@ -72,6 +116,10 @@ darkTheme(BuildContext context) {
         splashColor: Colors.black),
     shadowColor: COLOR_LIGHT,
     appBarTheme: AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.dark,
+      ),
       elevation: 0.0,
     ),
   );

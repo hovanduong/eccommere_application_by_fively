@@ -16,9 +16,8 @@ import 'src/presentation/presentation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark));
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Firebase.initializeApp();
   await AppPref.initListener();
@@ -69,7 +68,14 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: AppValues.APP_NAME,
-      theme: ThemeSwitcher.of(context).themeData,
+      // theme: ThemeSwitcher.of(context).themeData,
+      theme: lightTheme(context),
+      darkTheme: darkTheme(context),
+      themeMode: AppPref.themeValue == 0
+          ? ThemeMode.system
+          : AppPref.themeValue == 1
+              ? ThemeMode.light
+              : ThemeMode.dark,
       navigatorObservers: <NavigatorObserver>[MyApp.observer],
       locale: Locale('en', 'US'),
       translationsKeys: AppTranslation.translations,

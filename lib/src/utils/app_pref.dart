@@ -10,6 +10,7 @@ class AppPref {
 
   static initListener() async {
     await GetStorage.init("AppPref");
+    _box.writeIfNull("appTheme", 0);
     _box.listenKey('user', (user) {
       _userBehavior.add(user);
     });
@@ -26,6 +27,9 @@ class AppPref {
 
   static set lastName(String firstName) => _box.write("lastName", firstName);
   static String get lastName => _box.read("lastName");
+
+  static set themeValue(int theme) => _box.write("appTheme", theme);
+  static int get themeValue => _box.read("appTheme");
 
   static Stream get watchUser => _userBehavior.stream;
 }

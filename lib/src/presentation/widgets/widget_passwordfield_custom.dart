@@ -77,7 +77,7 @@ class _WidgetInputPasswordCustomState extends State<WidgetInputPasswordCustom> {
                               obscureText
                                   ? Icons.visibility_off_outlined
                                   : Icons.visibility_outlined,
-                              color: Theme.of(context).accentColor,
+                              color: Theme.of(context).colorScheme.secondary,
                             ),
                           ),
                         )

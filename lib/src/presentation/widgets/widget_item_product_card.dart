@@ -88,7 +88,7 @@ class WidgetItemProductCard extends StatelessWidget {
           Text(
             "Dorothy Perkins",
             style: STYLE_SMALL.copyWith(
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           Text("Evenning Dress",

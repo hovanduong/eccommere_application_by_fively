@@ -48,7 +48,7 @@ class WidgetProductList extends StatelessWidget {
     return Container(
       height: (Get.width * 0.35) * 2,
       child: ListView.builder(
-          padding: EdgeInsets.zero,
+          padding: EdgeInsets.symmetric(vertical: 5),
           scrollDirection: Axis.horizontal,
           itemBuilder: (_, index) {
             return WidgetItemProductCard();
