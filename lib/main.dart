@@ -4,8 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/src/presentation/onboarding/onboarding_screen.dart';
-import 'package:flutter_app/src/presentation/sign_up/sign_up_screen.dart';
 import 'package:flutter_app/src/utils/app_pref.dart';
 import 'package:flutter_app/src/utils/utils.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -17,7 +15,10 @@ import 'src/presentation/presentation.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ),
+  );
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Firebase.initializeApp();
   await AppPref.initListener();

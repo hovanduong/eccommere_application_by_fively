@@ -3,6 +3,9 @@ import 'package:flutter_app/src/configs/configs.dart';
 import 'package:flutter_app/src/presentation/base/base.dart';
 import 'package:flutter_app/src/presentation/page/profile_page/profile_page_viewmodel.dart';
 import 'package:flutter_app/src/presentation/presentation.dart';
+import 'package:flutter_app/src/resource/bloc/profile_bloc.dart';
+import 'package:flutter_app/src/resource/model/user_model.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -38,7 +41,8 @@ class ProfilePage extends StatelessWidget {
     return Container(
       alignment: Alignment.centerRight,
       child: IconButton(
-        icon: SvgPicture.asset(AppImages.icSearch),
+        icon: SvgPicture.asset(AppImages.icSearch,
+            color: Theme.of(context).colorScheme.secondary),
         onPressed: () {},
       ),
     );
@@ -46,21 +50,36 @@ class ProfilePage extends StatelessWidget {
 
   Widget _bildBody(BuildContext context) {
     return Expanded(
-        child: Container(
-      padding: EdgeInsets.symmetric(horizontal: AppValues.DEFAULT_PADDING),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("My profile", style: STYLE_LARGE_BOLD),
-          _buildAvatar(context),
-          SizedBox(height: 20),
-          _buildMenuProfile(context),
-        ],
-      ),
+        child: StreamBuilder<UserModel>(
+      stream: profileBloc.getProfile,
+      builder: (_, snapshot) {
+        if (snapshot.hasData) {
+          UserModel? profile = snapshot.data;
+          EasyLoading.dismiss();
+          return Container(
+            padding:
+                EdgeInsets.symmetric(horizontal: AppValues.DEFAULT_PADDING),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("My profile",
+                    style: STYLE_LARGE_BOLD.copyWith(
+                        color: Theme.of(context).colorScheme.secondary)),
+                _buildAvatar(context, profile),
+                SizedBox(height: 20),
+                _buildMenuProfile(context),
+              ],
+            ),
+          );
+        } else {
+          EasyLoading.show(status: "loading".tr);
+          return Container();
+        }
+      },
     ));
   }
 
-  Widget _buildAvatar(BuildContext context) {
+  Widget _buildAvatar(BuildContext context, UserModel? profile) {
     return Container(
       margin: EdgeInsets.only(top: 20),
       child: Row(
@@ -73,8 +92,11 @@ class ProfilePage extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Matilda Brown", style: STYLE_MEDIUM_BOLD, maxLines: 1),
-              Text("matildabrown@mail.com",
+              Text("${profile!.firstName} ${profile.lastName}",
+                  style: STYLE_MEDIUM_BOLD.copyWith(
+                      color: Theme.of(context).colorScheme.secondary),
+                  maxLines: 1),
+              Text(profile.email,
                   style: TextStyle(color: Theme.of(context).disabledColor)),
             ],
           )

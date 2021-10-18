@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/configs/configs.dart';
 import 'package:flutter_app/src/presentation/base/base.dart';
+import 'package:flutter_app/src/presentation/settings/components/widget_setting_notification.dart';
 import 'package:flutter_app/src/presentation/settings/components/widget_setting_theme.dart';
 import 'package:flutter_app/src/presentation/settings/setting_viewmodel.dart';
 import 'package:get/get.dart';
@@ -60,7 +61,9 @@ class SettingScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(
           horizontal: AppValues.DEFAULT_PADDING, vertical: Get.height * 0.01),
       child: Text("Settings",
-          style: STYLE_MEDIUM_BOLD.copyWith(fontSize: Get.width * 0.07)),
+          style: STYLE_MEDIUM_BOLD.copyWith(
+              fontSize: Get.width * 0.07,
+              color: Theme.of(context).colorScheme.secondary)),
     );
   }
 
@@ -75,14 +78,8 @@ class SettingScreen extends StatelessWidget {
   }
 
   Widget _buildNotificationSetting(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-          horizontal: AppValues.DEFAULT_PADDING, vertical: Get.height * 0.01),
-      child: Column(
-        children: [
-          Text("Notifications", style: STYLE_MEDIUM_BOLD),
-        ],
-      ),
+    return WidgetSettingNotifications(
+      onChage: (value) {},
     );
   }
 }

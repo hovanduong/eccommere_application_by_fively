@@ -1,51 +1,28 @@
 class UserModel {
-  int? userId;
-  String? type;
-  String? name;
-  String? email;
-  String? emailVerifiedAt;
-  String? passwordChangedAt;
-  bool? active;
-  String? timezone;
-  String? lastLoginAt;
-  String? lastLoginIp;
-  String? toBeLoggedOut;
-  String? provider;
-  String? verifyPhoneAt;
-  String? phonePumber;
-  String? avatar;
+  final String email;
+  final String firstName;
+  final String lastName;
+  final String phoneNumber;
+  final String avatar;
+  final String id;
 
-  UserModel(
-      {this.userId,
-      this.type,
-      this.name,
-      this.email,
-      this.emailVerifiedAt,
-      this.passwordChangedAt,
-      this.active,
-      this.verifyPhoneAt,
-      this.avatar,
-      this.toBeLoggedOut,
-      this.phonePumber,
-      this.lastLoginAt,
-      this.lastLoginIp,
-      this.provider,
-      this.timezone});
+  UserModel({
+    required this.id,
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    required this.avatar,
+    required this.phoneNumber,
+  });
 
-  UserModel.fromJson(Map<String, dynamic> json) {
-    this.userId = json["id"];
-    this.type = json["type"];
-    this.email = json["email"];
-    this.emailVerifiedAt = json["email_verified_at"];
-    this.passwordChangedAt = json["password_changed_at"];
-    this.timezone = json["timezone"];
-    this.lastLoginAt = json["last_login_at"];
-    this.lastLoginIp = json["last_login_ip"];
-    // toBeLoggedOut = json["to_be_logged_out"];
-    this.provider = json["avatar"];
-    this.verifyPhoneAt = json["email"];
-    this.phonePumber = json["phone_number"];
-    this.avatar = json["email"];
-    this.active = json["active"];
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      id: json['_id'],
+      firstName: json['firstName'],
+      lastName: json['lastName'],
+      email: json['email'],
+      avatar: json['avatar'],
+      phoneNumber: json['phoneNumber'],
+    );
   }
 }

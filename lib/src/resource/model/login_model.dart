@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter_app/src/resource/model/token_model.dart';
-import 'package:flutter_app/src/resource/model/user_model.dart';
+import 'package:flutter_app/src/resource/model/user_model_tmp.dart';
 
 class LoginModel {
   UserModel? user;

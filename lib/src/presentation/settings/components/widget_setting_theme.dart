@@ -17,11 +17,17 @@ class WidgetSettingTheme extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Theme settings", style: STYLE_MEDIUM_BOLD),
+          Text(
+            "Theme settings",
+            style: STYLE_MEDIUM_BOLD.copyWith(
+                color: Theme.of(context).colorScheme.secondary),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Select your theme your app"),
+              Text("Select your theme your app",
+                  style: STYLE_SMALL_BOLD.copyWith(
+                      color: Theme.of(context).colorScheme.secondary)),
               DropdownButton<String>(
                 dropdownColor: Theme.of(context).backgroundColor,
                 focusColor: Colors.white,

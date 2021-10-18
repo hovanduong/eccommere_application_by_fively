@@ -94,13 +94,17 @@ class WidgetItemProductCard extends StatelessWidget {
           Text("Evenning Dress",
               maxLines: 1,
               style: STYLE_SMALL_BOLD.copyWith(
-                fontSize: 15,
-              )),
+                  fontSize: 15,
+                  color: Theme.of(context).colorScheme.secondary)),
           Row(
             children: [
-              Text("15\$"),
+              Text("15\$",
+                  style: STYLE_SMALL_BOLD.copyWith(
+                      color: Theme.of(context).colorScheme.secondary)),
               SizedBox(width: 3),
-              Text("15\$"),
+              Text("15\$",
+                  style: STYLE_SMALL_BOLD.copyWith(
+                      color: Theme.of(context).colorScheme.secondary)),
             ],
           )
         ],

@@ -27,13 +27,15 @@ class WidgetProductList extends StatelessWidget {
           children: [
             Text(
               title,
-              style: STYLE_MEDIUM_BOLD.copyWith(fontSize: 30),
+              style: STYLE_MEDIUM_BOLD.copyWith(
+                  fontSize: 30, color: Theme.of(context).colorScheme.secondary),
             ),
             Container(
               width: Get.width / 2,
               child: Text(
                 "Est commodo consequat pariatur nostrud esse in velit dolor ex et mollit aliqua enim aliqua!",
-                style: STYLE_SMALL,
+                style: STYLE_SMALL.copyWith(
+                    color: Theme.of(context).colorScheme.secondary),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -46,7 +48,7 @@ class WidgetProductList extends StatelessWidget {
 
   Widget _buildProducts(BuildContext context) {
     return Container(
-      height: (Get.width * 0.35) * 2,
+      height: (Get.width * 0.37) * 2,
       child: ListView.builder(
           padding: EdgeInsets.symmetric(vertical: 5),
           scrollDirection: Axis.horizontal,

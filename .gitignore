@@ -2,3 +2,5 @@
 \.idea
 .flutter-plugins
 .flutter-plugins-dependencies
+\build
+.packages

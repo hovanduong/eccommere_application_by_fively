@@ -51,7 +51,9 @@ class WidgetProfileItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: STYLE_MEDIUM_BOLD),
+          Text(title,
+              style: STYLE_MEDIUM_BOLD.copyWith(
+                  color: Theme.of(context).colorScheme.secondary)),
           SizedBox(height: 5),
           Text(
             description,

@@ -27,7 +27,6 @@ class AuthenticateResponsitory {
         "password": password,
         "passwordConfirm": passwordConfirm,
       });
-      log("registerResponse response:${response.data}");
       if (response.statusCode == 200) {
         if (response.data["status"] == 301) {
           return "email_is_exists".tr;
@@ -47,7 +46,6 @@ class AuthenticateResponsitory {
 
       return "ERROR";
     } catch (e) {
-      log("registerResponse error: ${e.toString()}");
       return "ERROR";
     }
   }

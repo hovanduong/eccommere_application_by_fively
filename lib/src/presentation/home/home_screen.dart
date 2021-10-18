@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildPage(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(bottom: 80),
+      padding: EdgeInsets.only(bottom: 70),
       child: PageView.builder(
         controller: _viewModel!.pageController,
         onPageChanged: (index) => _viewModel!.onPageChange(index),

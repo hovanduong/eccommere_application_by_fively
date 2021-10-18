@@ -15,7 +15,7 @@ class SettingsViewModel extends BaseViewModel {
   }
 
   Stream<int> get selectThemeSteaam => themeSubject.stream;
-  
+
   onChangeTheme(String? value) {
     if (value != null && value != "") {
       if (value == "Light") {
@@ -36,5 +36,11 @@ class SettingsViewModel extends BaseViewModel {
     Get.changeThemeMode(ThemeMode.system);
     themeSubject..add(0);
     return;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    themeSubject.close();
   }
 }
