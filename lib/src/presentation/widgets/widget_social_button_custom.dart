@@ -15,13 +15,13 @@ class WidgetButtonSocialCustom extends StatelessWidget {
         vertical: AppValues.DEFAULT_PADDING,
       ),
       decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
+          color: Colors.white,
           boxShadow: [
             BoxShadow(
                 offset: Offset(0, 0),
                 blurRadius: 2,
                 spreadRadius: 0,
-                color: Theme.of(context).shadowColor.withAlpha(80))
+                color: Theme.of(context).shadowColor.withAlpha(50))
           ],
           borderRadius: BorderRadius.circular(20)),
       child: Image.asset(

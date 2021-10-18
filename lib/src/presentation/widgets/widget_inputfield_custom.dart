@@ -7,13 +7,14 @@ class WidgetCustomInputField extends StatefulWidget {
   final String textError;
   final Function(String value) onChange;
   final String? label;
-
+  final bool enable;
   const WidgetCustomInputField({
     Key? key,
     required this.controller,
     required this.textError,
     required this.onChange,
     this.label,
+    this.enable = true,
   }) : super(key: key);
 
   @override
@@ -40,7 +41,7 @@ class _WidgetCustomInputFieldState extends State<WidgetCustomInputField> {
                 boxShadow: [
                   BoxShadow(
                       offset: Offset(0, 0),
-                      blurRadius: 2,
+                      blurRadius: 0,
                       spreadRadius: 0,
                       color: Theme.of(context).shadowColor.withAlpha(30))
                 ],
@@ -49,36 +50,43 @@ class _WidgetCustomInputFieldState extends State<WidgetCustomInputField> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(widget.label!, style: STYLE_SMALL_BOLD),
+                  Text(widget.label!,
+                      style: STYLE_SMALL_BOLD.copyWith(
+                        color: Theme.of(context).colorScheme.onSurface,
+                      )),
                   SizedBox(
                     height: 25,
                     child: Row(
                       children: [
                         Expanded(
                           child: TextField(
+                            enabled: widget.enable,
                             controller: widget.controller,
                             maxLines: 1,
-                            style: STYLE_SMALL_BOLD,
+                            style: STYLE_SMALL_BOLD.copyWith(
+                                color: Theme.of(context).colorScheme.secondary),
                             onChanged: widget.onChange,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                             ),
                           ),
                         ),
-                        widget.textError == "" &&
-                                widget.controller.text.length > 0
-                            ? Container(
-                                child: Icon(
-                                  Icons.check_outlined,
-                                  color: SUCCESS_COLOR,
-                                ),
-                              )
-                            : Container(
-                                child: Icon(
-                                  Icons.error_outline,
-                                  color: ERROR_COLOR,
-                                ),
-                              )
+                        widget.enable
+                            ? widget.textError == "" &&
+                                    widget.controller.text.length > 0
+                                ? Container(
+                                    child: Icon(
+                                      Icons.check_outlined,
+                                      color: SUCCESS_COLOR,
+                                    ),
+                                  )
+                                : Container(
+                                    child: Icon(
+                                      Icons.error_outline,
+                                      color: ERROR_COLOR,
+                                    ),
+                                  )
+                            : Container()
                       ],
                     ),
                   ),

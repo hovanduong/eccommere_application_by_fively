@@ -6,6 +6,7 @@ import 'package:flutter_app/src/presentation/sign_in/sign_in_viewmodel.dart';
 import 'package:flutter_app/src/presentation/widgets/widget_inputfield_custom.dart';
 import 'package:flutter_app/src/presentation/widgets/widget_passwordfield_custom.dart';
 import 'package:flutter_app/src/presentation/widgets/widget_social_button_custom.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -57,7 +58,10 @@ class SignInScreen extends StatelessWidget {
       ),
       child: Text(
         "sign_in".tr,
-        style: STYLE_MEDIUM_BOLD.copyWith(fontSize: 25),
+        style: STYLE_MEDIUM_BOLD.copyWith(
+          fontSize: 25,
+          color: Theme.of(context).colorScheme.secondary,
+        ),
       ),
     );
   }
@@ -113,11 +117,12 @@ class SignInScreen extends StatelessWidget {
           children: [
             Text(
               "forgot_your_password".tr,
-              style: STYLE_SMALL_BOLD,
+              style: STYLE_SMALL_BOLD.copyWith(
+                  color: Theme.of(context).colorScheme.secondary),
             ),
             SizedBox(width: 5),
-            Icon(
-              Icons.arrow_forward,
+            SvgPicture.asset(
+              AppImages.icArrowNext1,
               color: Theme.of(context).primaryColor,
             )
           ],
@@ -141,8 +146,8 @@ class SignInScreen extends StatelessWidget {
               BoxShadow(
                 blurRadius: 1,
                 spreadRadius: 0,
-                offset: Offset(-1, 0),
-                color: Theme.of(context).shadowColor.withAlpha(80),
+                offset: Offset(0, 0),
+                color: Theme.of(context).shadowColor.withAlpha(10),
               )
             ]),
         height: 50,

@@ -14,5 +14,7 @@ final Map<String, String> viVN = {
   'email_invalid': "Sai địa chỉ email!",
   'loading': "Đang tải...",
   'email_is_exists': "Tài khoản Email đã tồn tại!",
-  'phone_number_is_exists!': "Số điện thoài đã tồn tại!"
+  'phone_number_is_exists!': "Số điện thoài đã tồn tại!",
+  "your_personal_information": "Thông tin cá nhân của bạn!",
+  "done": "Xong"
 };

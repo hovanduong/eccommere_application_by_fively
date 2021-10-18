@@ -42,7 +42,7 @@ class _WidgetInputPasswordCustomState extends State<WidgetInputPasswordCustom> {
                 boxShadow: [
                   BoxShadow(
                     offset: Offset(0, 0),
-                    blurRadius: 2,
+                    blurRadius: 0,
                     spreadRadius: 0,
                     color: Theme.of(context).shadowColor.withAlpha(30),
                   )
@@ -52,7 +52,9 @@ class _WidgetInputPasswordCustomState extends State<WidgetInputPasswordCustom> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(widget.label!, style: STYLE_SMALL_BOLD),
+                  Text(widget.label!,
+                      style: STYLE_SMALL_BOLD.copyWith(
+                          color: Theme.of(context).colorScheme.onSurface)),
                   SizedBox(
                     height: 25,
                     child: Row(
@@ -62,7 +64,8 @@ class _WidgetInputPasswordCustomState extends State<WidgetInputPasswordCustom> {
                             obscureText: obscureText,
                             controller: widget.controller,
                             maxLines: 1,
-                            style: STYLE_SMALL_BOLD,
+                            style: STYLE_SMALL_BOLD.copyWith(
+                                color: Theme.of(context).colorScheme.secondary),
                             onChanged: widget.onChange,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -77,7 +80,7 @@ class _WidgetInputPasswordCustomState extends State<WidgetInputPasswordCustom> {
                               obscureText
                                   ? Icons.visibility_off_outlined
                                   : Icons.visibility_outlined,
-                              color: Theme.of(context).colorScheme.secondary,
+                              color: Theme.of(context).colorScheme.onSurface,
                             ),
                           ),
                         )

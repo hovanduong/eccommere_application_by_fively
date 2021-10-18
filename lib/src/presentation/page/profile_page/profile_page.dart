@@ -80,27 +80,31 @@ class ProfilePage extends StatelessWidget {
   }
 
   Widget _buildAvatar(BuildContext context, UserModel? profile) {
-    return Container(
-      margin: EdgeInsets.only(top: 20),
-      child: Row(
-        children: [
-          CircleAvatar(
-            backgroundImage: AssetImage(AppImages.avatarDefault),
-            radius: Get.width * 0.09,
-          ),
-          SizedBox(width: 15),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("${profile!.firstName} ${profile.lastName}",
-                  style: STYLE_MEDIUM_BOLD.copyWith(
-                      color: Theme.of(context).colorScheme.secondary),
-                  maxLines: 1),
-              Text(profile.email,
-                  style: TextStyle(color: Theme.of(context).disabledColor)),
-            ],
-          )
-        ],
+    return InkWell(
+      onTap: () =>
+          Get.toNamed(Routers.updateProfile, arguments: {"profile": profile}),
+      child: Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Row(
+          children: [
+            CircleAvatar(
+              backgroundImage: AssetImage(AppImages.avatarDefault),
+              radius: Get.width * 0.09,
+            ),
+            SizedBox(width: 15),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("${profile!.firstName} ${profile.lastName}",
+                    style: STYLE_MEDIUM_BOLD.copyWith(
+                        color: Theme.of(context).colorScheme.secondary),
+                    maxLines: 1),
+                Text(profile.email,
+                    style: TextStyle(color: Theme.of(context).disabledColor)),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

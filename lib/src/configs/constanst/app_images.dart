@@ -19,6 +19,7 @@ class AppImages {
   static final String icLoveActive = 'assets/icons/ic_love_active.svg';
   static final String icSearch = 'assets/icons/ic_search.svg';
   static final String icArrowNext = 'assets/icons/ic_arrow_next.svg';
+  static final String icArrowNext1 = 'assets/icons/ic_arrow_next_1.svg';
   static final String icArrowBack = 'assets/icons/ic_arrow_back.svg';
 
   // homepage

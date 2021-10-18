@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/configs/configs.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class WidgetProfileItem extends StatelessWidget {
   String title;
@@ -53,6 +54,7 @@ class WidgetProfileItem extends StatelessWidget {
         children: [
           Text(title,
               style: STYLE_MEDIUM_BOLD.copyWith(
+                  fontSize: 20 * Get.width * 0.0025,
                   color: Theme.of(context).colorScheme.secondary)),
           SizedBox(height: 5),
           Text(

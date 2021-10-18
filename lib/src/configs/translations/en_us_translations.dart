@@ -15,5 +15,7 @@ final Map<String, String> enUs = {
   'email_invalid': "Email is wrong format!",
   'loading': "Loading...",
   'email_is_exists': "Email is exists!",
-  'phone_number_is_exists!': "Phone Number is exists!"
+  'phone_number_is_exists!': "Phone Number is exists!",
+  "your_personal_information" : "Your personal information!",
+  "done": "Done"
 };

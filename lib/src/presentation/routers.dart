@@ -4,6 +4,7 @@ import 'package:flutter_app/src/presentation/home/home_screen.dart';
 import 'package:flutter_app/src/presentation/settings/settings_screen.dart';
 import 'package:flutter_app/src/presentation/sign_in/sign_in_screen.dart';
 import 'package:flutter_app/src/presentation/sign_up/sign_up_screen.dart';
+import 'package:flutter_app/src/presentation/update_profile/update_profile_screen.dart';
 
 import 'navigation/navigation_screen.dart';
 
@@ -15,6 +16,7 @@ class Routers {
   static const String register = "/register";
   static const String home = "/home";
   static const String setting = "/setting";
+  static const String updateProfile = "/update_profile";
   static Route<dynamic> generateRoute(RouteSettings settings) {
     var arguments = settings.arguments;
     switch (settings.name) {
@@ -30,6 +32,9 @@ class Routers {
         return animRoute(HomeScreen(), name: home);
       case setting:
         return animRoute(SettingScreen(), name: setting);
+      case updateProfile:
+        return animRoute(UpdateProfileScren(),
+            name: updateProfile, arguments: arguments);
       default:
         return animRoute(
             Container(

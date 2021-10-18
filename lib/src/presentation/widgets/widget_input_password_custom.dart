@@ -35,7 +35,8 @@ class _WidgetCustomInputPasswordState extends State<WidgetCustomInputPassword> {
         children: [
           Text(
             widget.labelText ?? "",
-            style: STYLE_SMALL_BOLD,
+            style: STYLE_SMALL_BOLD.copyWith(
+                color: Theme.of(context).colorScheme.onSurface),
           ),
           SizedBox(height: 5),
           Container(
@@ -47,9 +48,12 @@ class _WidgetCustomInputPasswordState extends State<WidgetCustomInputPassword> {
               style: STYLE_SMALL_BOLD.copyWith(fontSize: 15),
               decoration: InputDecoration(
                 suffixIcon: InkWell(
-                  child: Icon(!_obscureText
-                      ? Icons.visibility_outlined
-                      : Icons.visibility_off_outlined),
+                  child: Icon(
+                    !_obscureText
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                   onTap: () {
                     setState(() {
                       _obscureText = !_obscureText;
