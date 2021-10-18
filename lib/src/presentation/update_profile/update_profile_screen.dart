@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/configs/constanst/constants.dart';
 import 'package:flutter_app/src/presentation/base/base.dart';
+import 'package:flutter_app/src/presentation/update_profile/components/update_info_field.dart';
 import 'package:flutter_app/src/presentation/update_profile/update_profile_viewmodel.dart';
 import 'package:flutter_app/src/presentation/widgets/widget_bottom_sheet.dart';
 import 'package:flutter_app/src/presentation/widgets/widget_inputfield_custom.dart';
@@ -20,6 +21,7 @@ class UpdateProfileScren extends StatelessWidget {
       onViewModelReady: (viewModel) => _viewModel = viewModel!..initial(),
       builder: (_, viewModel, chuild) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           backgroundColor: Theme.of(_).backgroundColor,
           body: SafeArea(
             child: Container(
@@ -126,7 +128,21 @@ class UpdateProfileScren extends StatelessWidget {
           enable: false,
         ),
       ),
-      onTap: () => showModalBottomCustom(context),
+      onTap: () {
+        _viewModel.firstNameEditContoller.text =
+            _viewModel.firstNameContoller.text;
+        showModalBottomCustom(
+            context: context,
+            widget: WidgetUpdateInfo(
+              controller: _viewModel.firstNameEditContoller,
+              onPress: () => {
+                _viewModel.firstNameContoller.text =
+                    _viewModel.firstNameEditContoller.text.trim(),
+                Get.back()
+              },
+            ),
+            height: Get.height / 3);
+      },
     );
   }
 

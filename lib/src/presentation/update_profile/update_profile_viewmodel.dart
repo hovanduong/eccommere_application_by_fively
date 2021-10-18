@@ -7,9 +7,11 @@ import 'package:get/get.dart';
 
 class UpdateProfileViewModel extends BaseViewModel {
   TextEditingController firstNameContoller = new TextEditingController();
+  TextEditingController firstNameEditContoller = new TextEditingController();
   TextEditingController lasttNameContoller = new TextEditingController();
   TextEditingController emailContoller = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController(text: "...........");
+  TextEditingController passwordController =
+      new TextEditingController(text: "...........");
 
   initial() async {
     UserModel profile = Get.arguments["profile"];
