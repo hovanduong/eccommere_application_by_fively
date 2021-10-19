@@ -5,7 +5,7 @@ import 'package:rxdart/rxdart.dart';
 class ProfileBloc {
   UserResponsitory userResponsitory = new UserResponsitory();
   final _profile = new BehaviorSubject<UserModel>();
-  
+
   fetchProfileData() async {
     UserModel proifle = await userResponsitory.getUserProfileRepons();
     _profile.sink.add(proifle);
