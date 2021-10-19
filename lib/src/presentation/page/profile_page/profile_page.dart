@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/configs/configs.dart';
 import 'package:flutter_app/src/presentation/base/base.dart';
+import 'package:flutter_app/src/presentation/bloc/profile_bloc.dart';
 import 'package:flutter_app/src/presentation/page/profile_page/profile_page_viewmodel.dart';
 import 'package:flutter_app/src/presentation/presentation.dart';
 import 'package:flutter_app/src/resource/bloc/profile_bloc.dart';

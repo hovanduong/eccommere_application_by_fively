@@ -1,4 +1,5 @@
 import 'package:flutter_app/src/presentation/base/base.dart';
+import 'package:flutter_app/src/presentation/bloc/profile_bloc.dart';
 import 'package:flutter_app/src/resource/bloc/profile_bloc.dart';
 
 class ProfilePageViewModel extends BaseViewModel {
